@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <title>Gerenciamento de Produtos</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>        
+    <style>
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 90vh;
+            margin: 0;
+        }
+
+        .container {
+            width: 800px;
+        }
+
+        .mb-1, .mb-2, .mt-1, .mt-2 {
+            margin-bottom: 10px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+
+                <h1 class="text-center">Gerenciamento de Produtos</h1>
+                {{#sucess}}
+                <div class="alert alert-success">
+                    Usuário cadastrado com sucesso!
+                </div>
+                {{/sucess}}
+                {{#error}}
+                <div class="alert alert-danger">
+                    Erro ao cadastrar usuário!
+                </div>
+                {{/error}}
+                {{#auth_error}}
+                <div class="alert alert-danger">
+                    Erro ao autenticar usuário!
+                </div>
+                {{/auth_error}}
+                <form action="/validarUsuario" method="post">
+                    <div class="mb-1 mt-1">
+                        <label for="email" class="form-label">Email:</label>
+                        <input type="email" class="form-control" id="email" name="email">
+                    </div>
+                    <div class="mb-1">
+                        <label for="senha" class="form-label">Senha:</label>
+                        <input type="password" class="form-control" id="senha" name="senha">
+                    </div>
+                    <button type="submit" class="btn btn-dark w-100 mt-4">Acessar</button>
+                </form> 
+
+                <h6 class="mt-3 text-center">Registre-se caso não possua cadastro!</h6>
+
+                <form action="/cadastraruser" method="post">
+                    <div class="mb-1 mt-1">
+                        <label for="email" class="form-label">Email:</label>
+                        <input type="email" class="form-control" id="email" name="email">
+                    </div>
+                    <div class="mb-1">
+                        <label for="senha" class="form-label">Senha:</label>
+                        <input type="password" class="form-control" id="senha" name="senha">
+                    </div>
+                    <button type="submit" class="btn btn-dark w-100 mt-4">Cadastrar</button>
+                </form> 
+
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
